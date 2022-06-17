@@ -1,4 +1,4 @@
-package com.springbank.user.cmd.api.dto;
+package dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

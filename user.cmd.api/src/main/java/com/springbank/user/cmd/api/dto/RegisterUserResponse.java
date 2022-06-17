@@ -1,9 +1,8 @@
 package com.springbank.user.cmd.api.dto;
 
-import com.springbank.user.core.models.User;
-import lombok.Data;
+import dto.BaseResponse;
 
-public class RegisterUserResponse extends BaseResponse{
+public class RegisterUserResponse extends BaseResponse {
 
     public String id;
 
