@@ -14,7 +14,7 @@
 	<name>user.query.api</name>
 	<description>User query API project</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>14</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +40,22 @@
 			<groupId>com.springbank</groupId>
 			<artifactId>user.core</artifactId>
 			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.4.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<version>2.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-jwt</artifactId>
+			<version>1.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
