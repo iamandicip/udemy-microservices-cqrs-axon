@@ -12,12 +12,12 @@ spring:
         - id: userCmdApi-UpdateUser
           uri: http://localhost:8081/api/v1/updateUser/**
           predicates:
-            - Path=/api/v1/updateUser
+            - Path=/api/v1/updateUser/**
         - id: userCmdApi-RemoveUser
           uri: http://localhost:8081/api/v1/removeUser/**
           predicates:
-            - Path=/api/v1/removeUser
+            - Path=/api/v1/removeUser/**
         - id: userQueryApi-UserLookup
           uri: http://localhost:8082/api/v1/userLookup/**
           predicates:
-            - Path=/api/v1/userLookup
+            - Path=/api/v1/userLookup/**
