@@ -72,3 +72,35 @@ docker run -it -d --name adminer -p 8080:8080 --network springbankNet --restart 
 ## User microservices
 
 ![User microservices](./Component+Diagram+-+User+Microservices.svg)
+
+## Spring Security & OAuth 2.0
+
+### Spring Security
+
+Is the de facto standard for securing Spring-based applications.
+
+Spring Security features:
+
+- comprehensive and extensible support for Authentication & Authorization
+- protection agains attacks
+- servlet API integration
+- optional integration with Spring MVS
+
+### OAuth 2.0 framework
+
+Enables a third-party application to obtain limited access to an HTTP service.
+
+### JWT (JSON Web Token)
+
+Defines hos access token can be generated and encoded as JSON objects, to enable the secure transmission of data.
+
+## API Gateways & Spring Cloud Gateway
+
+An API Gateway create a **unified entry point** that client applications can use to access microservices.
+
+It acts as a **reverse proxy** that **routes the HTTP requests** that are made by clients **to the correct backend microservices.**
+
+Spring Cloud Gateway provides a library for building an API Gateway on top of Spring MVC.
+
+It provides a simple and effective way to route incoming requests to the appropriate destination using Gateway Handler Mapping.
+
