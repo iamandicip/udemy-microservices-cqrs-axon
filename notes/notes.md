@@ -104,3 +104,6 @@ Spring Cloud Gateway provides a library for building an API Gateway on top of Sp
 
 It provides a simple and effective way to route incoming requests to the appropriate destination using Gateway Handler Mapping.
 
+## Bank account microservices
+
+![Bank account component diagram](Component+Diagram+-+Bank+Account+Microservices.svg)
