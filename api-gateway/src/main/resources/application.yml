@@ -9,19 +9,43 @@ spring:
           uri: http://localhost:8081/api/v1/registerUser
           predicates:
             - Path=/api/v1/registerUser
+
         - id: userCmdApi-UpdateUser
           uri: http://localhost:8081/api/v1/updateUser/**
           predicates:
             - Path=/api/v1/updateUser/**
+
         - id: userCmdApi-RemoveUser
           uri: http://localhost:8081/api/v1/removeUser/**
           predicates:
             - Path=/api/v1/removeUser/**
+
         - id: userQueryApi-UserLookup
           uri: http://localhost:8082/api/v1/userLookup/**
           predicates:
             - Path=/api/v1/userLookup/**
+
         - id: bankAccountCmdApi-OpenAccount
           uri: http://localhost:9091/api/v1/openBankAccount
           predicates:
             - Path=/api/v1/openBankAccount
+
+        - id: bankAccountCmdApi-DepositFunds
+          uri: http://localhost:9091/api/v1/depositFunds/**
+          predicates:
+            - Path=/api/v1/depositFunds/**
+
+        - id: bankAccountCmdApi-WithdrawFunds
+          uri: http://localhost:9091/api/v1/withdrawFunds/**
+          predicates:
+            - Path=/api/v1/withdrawFunds/**
+
+        - id: bankAccCmdApi-CloseAccount
+          uri: http://localhost:9091/api/v1/closeBankAccount/**
+          predicates:
+            - Path=/api/v1/closeBankAccount/**
+
+        - id: bankAccQueryApi-UserLookup
+          uri: http://localhost:9082/api/v1/bankAccountLookup/**
+          predicates:
+            - Path=/api/v1/bankAccountLookup/**
