@@ -62,10 +62,19 @@ Express the desire for information, generally a specific representation of the s
 ## Environment setup
 
 ```shell
+# init docker
 docker swarm init
+
+# create and run axon server
 docker run -d --name axon-server -p 8024:8024 --network springbankNet --restart always axoniq/axonserver:latest
+
+# create and run mongo server
 docker run -it -d --name mongo-container -p 27017:27017 --network springbankNet --restart always -v mongodb_data_container:/data/db mongo:latest
+
+# create and run mysql server
 docker run -it -d --name mysql-container -p 3306:3306 --network springbankNet --restart always -e MYSQL_ROOT_PASSWORD=springbankRootPsw -v my_sql_data_container:/var/lib/mysql mysql:latest
+
+# create and run adminer mysql client
 docker run -it -d --name adminer -p 8080:8080 --network springbankNet --restart always -e ADMINER_DEFAULT_SERVER=mysql-container adminer:latest
 ```
 
@@ -107,3 +116,46 @@ It provides a simple and effective way to route incoming requests to the appropr
 ## Bank account microservices
 
 ![Bank account component diagram](Component+Diagram+-+Bank+Account+Microservices.svg)
+
+## Docker containerization
+
+```shell
+# get the names of the containers to include in properties files for the docker profile
+docker ps
+
+# build the docker image
+docker build -t user-oauth2 .
+
+#get the network name
+docker inspect mongo-container -f "{{ json .NetworkSettings.Networks}}"
+
+# create and run oauth2-service
+docker run -d -p 8084:8084 --name oauth2-service --network springbankNet -e "SPRING_PROFILES_ACTIVE=docker" --restart always user-oauth2 
+
+# start-stop container
+docker container stop oauth2-service
+docker container start oauth2-service
+
+# docker push to hub
+docker login
+docker tag user-oauth2 iamandicip/courses:user-oauth2
+docker push iamandicip/courses:user-oauth2
+
+# remove container and image
+docker container rm oauth2-service
+docker image rm user-oauth2
+docker image rm iamandicip/courses:user-oauth2
+
+# recreate image and container from Docker hub
+docker pull iamandicip/courses:user-oauth2
+docker run -d -p 8084:8084 --name oauth2-service --network springbankNet -e "SPRING_PROFILES_ACTIVE=docker" --restart always iamandicip/courses:user-oauth2
+
+# docker compose
+docker-compose up -d
+docker-compose down
+
+# docker swarm
+docker stack deploy --compose-file docker-compose-stack.yml springbank
+docker service ls
+docker stack rm springbank
+```
